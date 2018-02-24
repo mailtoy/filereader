@@ -12,31 +12,44 @@ import java.io.IOException;
  */
 public class AppendStringUseBufferedReader implements Runnable {
 
+	private String filename;
+	private int size;
+
+	/**
+	 * 
+	 * Initialize the AppendStringUseBufferedReader.
+	 * 
+	 * @param filename
+	 *            is the file that you want to read.
+	 * 
+	 */
+	public AppendStringUseBufferedReader(String filename) {
+		this.filename = filename;
+		this.size = 0;
+	}
+
 	/**
 	 * 
 	 */
 	@Override
-	public String run() {
+	public void run() {
 		FileReader reader = null;
 		BufferedReader br = null;
 		String result = "";
 		String line = "";
 		try {
-			reader = new FileReader(
-					"/Users/mailtoy/Documents/workspace/Practice-Stopwatch/src/stopwatch/Alice-in-Wonderland.txt");
+			reader = new FileReader(filename);
 			br = new BufferedReader(reader);
 			while ((line = br.readLine()) != null)
 				result = result + line + '\n';
+			if (br != null)
+				br.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		if (br != null)
-			try {
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		return result;
+
+		size = result.length();
+
 	}
 
 	/**
@@ -45,7 +58,7 @@ public class AppendStringUseBufferedReader implements Runnable {
 	 * @return the description of the task
 	 */
 	public String toString() {
-		return "Reading Alice-in-Wonderland.txt using FileReader, append lines to String";
+		return "Reading " + size + " Alice-in-Wonderland.txt using FileReader, append lines to String";
 
 	}
 

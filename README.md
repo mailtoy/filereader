@@ -5,9 +5,9 @@ I ran the tasks on a MacBook Pro (Retina, 13-inch, Early 2015) with 2.7 GHz Inte
 
 Task                                          | Time
 ----------------------------------------------|-------:
-Read file 1-char at a time to String          |  1.040304 sec
-Read file 1-char at a time to StringBuilder   |  0.778817 sec
-Read file line at a time using BufferedReader |  0.757948 sec                                  
+Read file 1-char at a time to String          |  1.113333 sec
+Read file 1-char at a time to StringBuilder   |  0.039311 sec
+Read file line at a time using BufferedReader |  0.036272 sec                                  
 
 ## Explanation of Results
 
@@ -30,3 +30,4 @@ BufferedReader is fast because it maintains a buffer and retrieving data from bu
 BufferedReader  < StringBuilder < String
 ```
 
+But, sometimes BufferedReader > StringBuilder (a little more)

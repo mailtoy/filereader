@@ -13,35 +13,47 @@ import java.io.InputStreamReader;
  */
 public class AppendStringBuilderTask implements Runnable {
 
+	private String filename;
+	private int size;
+
+	/**
+	 * 
+	 * Initialize the AppendStringBuilderTask.
+	 * 
+	 * @param filename
+	 *            is the file that you want to read.
+	 * 
+	 */
+	public AppendStringBuilderTask(String filename) {
+		this.filename = filename;
+		this.size = 0;
+	}
+
 	/**
 	 * 
 	 */
 	@Override
-	public String run() {
+	public void run() {
 		InputStream in = null;
 		InputStreamReader reader = null;
 		StringBuilder result = new StringBuilder();
 		try {
-			in = new FileInputStream(
-					"/Users/mailtoy/Documents/workspace/Practice-Stopwatch/src/stopwatch/Alice-in-Wonderland.txt");
+			in = new FileInputStream(filename);
 			reader = new InputStreamReader(in);
-			int c; 
-			while ((true)) { 
+			int c;
+			while ((true)) {
 				c = in.read();
 				if (c < 0)
 					break;
 				result = result.append((char) c);
 			}
+			if (reader != null)
+				reader.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		if (reader != null)
-			try {
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		return result.toString();
+		size = result.length();
+		result.toString();
 	}
 
 	/**
@@ -50,7 +62,7 @@ public class AppendStringBuilderTask implements Runnable {
 	 * @return the description of the task
 	 */
 	public String toString() {
-		return "Reading Alice-in-Wonderland.txt using FileReader, append to StringBuilder";
+		return "Reading " + size + " Alice-in-Wonderland.txt using FileReader, append to StringBuilder";
 
 	}
 

@@ -13,18 +13,34 @@ import java.io.InputStreamReader;
  */
 public class AppendStringTask implements Runnable {
 
+	private int size;
+	private String result = "";
+	private String filename;
+
+	/**
+	 * 
+	 * Initialize the AppendStringTask.
+	 * 
+	 * @param filename
+	 *            is the file that you want to read.
+	 * 
+	 */
+	public AppendStringTask(String filename) {
+		this.filename = filename;
+		this.result = "";
+		this.size = 0;
+	}
+
 	/**
 	 * 
 	 */
 	@Override
-	public String run() {
+	public void run() {
 
-		String result = "";
 		InputStream in = null;
 		InputStreamReader reader = null;
 		try {
-			in = new FileInputStream(
-					"/Users/mailtoy/Documents/workspace/Practice-Stopwatch/src/stopwatch/Alice-in-Wonderland.txt");
+			in = new FileInputStream(filename);
 			reader = new InputStreamReader(in);
 			int c;
 			while ((true)) {
@@ -33,16 +49,12 @@ public class AppendStringTask implements Runnable {
 					break;
 				result = result + (char) c;
 			}
+			if (reader != null)
+				reader.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		if (reader != null)
-			try {
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		return result;
+		size = result.length();
 	}
 
 	/**
@@ -51,7 +63,7 @@ public class AppendStringTask implements Runnable {
 	 * @return the description of the task
 	 */
 	public String toString() {
-		return "Reading Alice-in-Wonderland.txt using FileReader, append to String";
+		return "Reading " + size + " chars Alice-in-Wonderland.txt using FileReader, append to String";
 
 	}
 
