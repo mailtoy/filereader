@@ -8,19 +8,20 @@ package stopwatch;
  *
  */
 public class TaskTimer {
-	
+
 	/**
 	 * Runs a task, measures and prints its running time to the console.
-	 * @param runnable
+	 * 
+	 * @param runnable is the task to be run.
 	 */
-	  public void measureElapsed(Runnable runnable){
-	        Stopwatch stopwatch = new Stopwatch();
-	        stopwatch.start();
-	        runnable.run();
-	        stopwatch.stop();
-	        System.out.println(runnable.toString());
-	        System.out.printf("Read chars in %.6f sec.\n", stopwatch.getElapsed());
+	public void measureElapsed(Runnable runnable) {
+		Stopwatch stopwatch = new Stopwatch();
+		stopwatch.start();
+		runnable.run();
+		stopwatch.stop();
+		System.out.println(runnable.toString());
+		System.out.printf("Read chars in %.6f sec.\n", stopwatch.getElapsed());
 
-	    }
+	}
 
 }

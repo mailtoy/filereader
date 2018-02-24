@@ -21,8 +21,7 @@ public class AppendStringTask implements Runnable {
 	 * 
 	 * Initialize the AppendStringTask.
 	 * 
-	 * @param filename
-	 *            is the file that you want to read.
+	 * @param filename is the file that you want to read.
 	 * 
 	 */
 	public AppendStringTask(String filename) {
@@ -32,7 +31,8 @@ public class AppendStringTask implements Runnable {
 	}
 
 	/**
-	 * 
+	 * Read a text file one character at a time. Append all the characters to a
+	 * String and return the String.
 	 */
 	@Override
 	public void run() {
@@ -60,7 +60,7 @@ public class AppendStringTask implements Runnable {
 	/**
 	 * Return the Task's description.
 	 * 
-	 * @return the description of the task
+	 * @return the description of the task.
 	 */
 	public String toString() {
 		return "Reading " + size + " chars Alice-in-Wonderland.txt using FileReader, append to String";

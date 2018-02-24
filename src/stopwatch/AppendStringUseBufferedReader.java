@@ -19,8 +19,7 @@ public class AppendStringUseBufferedReader implements Runnable {
 	 * 
 	 * Initialize the AppendStringUseBufferedReader.
 	 * 
-	 * @param filename
-	 *            is the file that you want to read.
+	 * @param filename is the file that you want to read.
 	 * 
 	 */
 	public AppendStringUseBufferedReader(String filename) {
@@ -29,7 +28,8 @@ public class AppendStringUseBufferedReader implements Runnable {
 	}
 
 	/**
-	 * 
+	 * Read the file as text one line at a time using a BufferedReader, and
+	 * append the result to a String.
 	 */
 	@Override
 	public void run() {

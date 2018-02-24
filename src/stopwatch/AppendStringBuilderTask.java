@@ -20,8 +20,7 @@ public class AppendStringBuilderTask implements Runnable {
 	 * 
 	 * Initialize the AppendStringBuilderTask.
 	 * 
-	 * @param filename
-	 *            is the file that you want to read.
+	 * @param filename is the file that you want to read.
 	 * 
 	 */
 	public AppendStringBuilderTask(String filename) {
@@ -30,7 +29,7 @@ public class AppendStringBuilderTask implements Runnable {
 	}
 
 	/**
-	 * 
+	 * Read the file to a StringBuilder object and append chars to a StringBuilder.
 	 */
 	@Override
 	public void run() {

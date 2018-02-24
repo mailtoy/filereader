@@ -13,8 +13,7 @@ public class Main {
 	/**
 	 * Run the tasks.
 	 * 
-	 * @param args
-	 *            not used.
+	 * @param args not used.
 	 */
 	public static void main(String[] args) {
 		TaskTimer taskTimer = new TaskTimer();
